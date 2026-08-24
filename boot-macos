@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -u
+
+if ! command -v asahi-bless >/dev/null 2>&1; then
+  echo "asahi-bless is not installed."
+  echo "Install it with: omarchy pkg add asahi-bless"
+  read -r -p "Press Enter to close..."
+  exit 1
+fi
+
+if ! gum confirm "Restart into macOS now?"; then
+  exit 0
+fi
+
+echo "Selecting macOS for the next boot only..."
+if ! sudo asahi-bless --next --set-boot-macos --yes; then
+  echo
+  echo "Could not select macOS. No reboot was requested."
+  echo "If you have more than one macOS volume, pick it manually with: sudo asahi-bless --next"
+  read -r -p "Press Enter to close..."
+  exit 1
+fi
+
+echo "Restarting into macOS..."
+sudo systemctl reboot

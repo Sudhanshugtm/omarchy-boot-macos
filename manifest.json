@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "sid.boot-macos",
+  "name": "Boot macOS",
+  "version": "1.0.0",
+  "author": "Sudhanshu Gautam",
+  "description": "One-click reboot into macOS on any Asahi Linux Mac (requires asahi-bless)",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Boot macOS",
+    "description": "Select macOS for the next boot only and restart",
+    "category": "System",
+    "defaultSection": "right",
+    "allowMultiple": false
+  }
+}
