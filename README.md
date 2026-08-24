@@ -7,6 +7,8 @@ back to Linux on the boot after that.
 Clicking the  icon opens a floating terminal that confirms, selects the
 macOS volume via `asahi-bless`, and reboots.
 
+![The widget in the Omarchy bar](preview.png)
+
 ## Requirements
 
 - Any Apple Silicon Mac running [Asahi Linux](https://asahilinux.org/) with
@@ -27,6 +29,17 @@ omarchy plugin add https://github.com/Sudhanshugtm/omarchy-boot-macos.git --enab
 Or try it straight from a local checkout by copying the folder to
 `~/.config/omarchy/plugins/sid.boot-macos/` and running
 `omarchy plugin enable sid.boot-macos`.
+
+## Remove
+
+```bash
+omarchy plugin remove sid.boot-macos
+```
+
+This deletes the plugin folder and takes the widget off the bar. Nothing else
+is touched — the plugin never modifies any configuration outside its own bar
+placement, and `asahi-bless` stays installed until you remove it yourself
+(`sudo pacman -R asahi-bless`).
 
 ## How it works
 
